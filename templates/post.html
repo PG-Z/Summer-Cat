@@ -70,6 +70,10 @@
             <span class="author-meta-item"><span class="icon-link"></span><a href="/" th:text="${site.url}"></a></span>
           </div>
         </div>
+
+        <div id="comment" th:if="${haloCommentEnabled}">
+          <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" />
+        </div>
       </section>
     </main>
   </th:block>
