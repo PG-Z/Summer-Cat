@@ -1,4 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
-  <th:block th:fragment="content"> </th:block>
+  <th:block th:fragment="content">
+    <main class="main-content">
+      <section class="blockGroup">
+        <th:block th:each="post : ${posts}">
+          <article class="block--inset block--list block">
+            <h2 class="block-title post-featured" itemprop="headline">
+              <a th:href="@{${post.status?.permalink}}" th:text="${post.spec.title}"></a>
+            </h2>
+            <div class="block-postMetaWrap u-textAlignCenter">
+              <time
+                class="article-date"
+                itemprop="datePublished"
+                th:datetime="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+                th:text="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+              ></time>
+            </div>
+            <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
+              <p><img decoding="async" class="aligncenter size-full" th:src="${post.spec?.cover}" /></p>
+              <p th:text="${post.status?.excerpt}"></p>
+              <p><a th:href="@{${post.status?.permalink}}" class="more-link">Read More.</a></p>
+            </div>
+            <div class="block-footer">
+              By <th:block th:text="${post.owner?.displayName}" /> . In
+              <th:block th:if="${not #lists.isEmpty(post.categories)}">
+                <th:block th:each="category : ${post.categories}">
+                  <a
+                    th:href="${category.status?.permalink}"
+                    rel="category tag"
+                    th:text="${category.spec.displayName}"
+                  ></a
+                  >.
+                </th:block>
+              </th:block>
+
+              <div class="block-footer-inner">
+                <th:block th:text="${post.stats?.upvote}" /> 喜欢 . <th:block th:text="${post.stats?.comment}" /> 回复.
+              </div>
+            </div>
+          </article>
+        </th:block>
+      </section>
+
+      <th:block th:if="${posts.totalPages > 1}" th:replace="~{modules/post-paginator :: paginator('',${posts})}" />
+    </main>
+  </th:block>
 </html>

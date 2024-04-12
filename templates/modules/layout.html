@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:text="${site.title}"></title>
     <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
+    <link rel="stylesheet" th:href="@{/assets/dist/css/bundle.css}" href="./assets/dist/css/bundle.css" />
     <script th:src="@{/assets/dist/main.js}"></script>
+    <script th:src="@{/assets/dist/js/bundle.js}"></script>
+    <script th:src="@{/assets/dist/js/jquery.min.js}"></script>
+    <script th:src="@{/assets/dist/js/jquery-migrate.min.js}"></script>
   </head>
-  <body>
-    <th:block th:replace="${content}" />
+
+  <body class="home blog">
+    <div class="surface-content">
+      <th:block th:replace="~{modules/header :: header}"></th:block>
+      <th:block th:replace="~{modules/nav :: nav}"></th:block>
+      <th:block th:replace="${content}" />
+      <th:block th:replace="~{modules/footer :: footer}"></th:block>
+    </div>
   </body>
 </html>

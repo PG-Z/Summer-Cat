@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
   <th:block th:fragment="content">
-    <article
-      class="prose !max-w-none p-4"
-      th:classappend="${theme.config.post.content_size} + ' ' + ${theme.config.post.content_theme}"
-    >
-      <h1 th:text="${post.spec.title}"></h1>
-      <th:block th:utext="${post.content.content}"> </th:block>
-    </article>
+    <main class="main-content">
+      <section class="section-body">
+        <header class="section-header u-textAlignCenter">
+          <h2 class="grap--h2" th:text="${post.spec.title}"></h2>
+          <div class="block-postMetaWrap">
+            <time
+              class="article-date"
+              itemprop="datePublished"
+              th:datetime="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+              th:text="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+            ></time>
+          </div>
+        </header>
+        <div class="grap" th:utext="${post.content.content}"></div>
+
+        <div class="post--keywords" itemprop="keywords">
+          <th:block th:if="${not #lists.isEmpty(post.tags)}">
+            <th:block th:each="tag : ${post.tags}">
+              <a
+                th:href="${tag.status?.permalink}"
+                class="post--keyword"
+                data-type="post_tag"
+                th:text="${tag.spec?.displayName}"
+              ></a>
+            </th:block>
+          </th:block>
+        </div>
+
+        <nav
+          class="navigation post-navigation"
+          aria-label="文章"
+          th:with="postCursor = ${postFinder.cursor(post.metadata.name)}"
+        >
+          <h2 class="screen-reader-text">文章导航</h2>
+          <div class="nav-links">
+            <div class="nav-previous" th:style="'visibility:' + ${postCursor.hasPrevious()?'block':'hidden'}">
+              <a
+                th:href="@{${postCursor.previous.status.permalink}}"
+                th:title="${postCursor.previous.spec.title}"
+                rel="prev"
+              >
+                <span class="meta-nav">Previous</span>
+                <span class="post-title" th:text="${#strings.abbreviate(postCursor.previous.spec.title,20)}"></span>
+              </a>
+            </div>
+            <div class="nav-next" th:style="'visibility:' + ${postCursor.hasNext()?'block':'hidden'}">
+              <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}" rel="next">
+                <span class="meta-nav">Next</span>
+                <span class="post-title" th:text="${#strings.abbreviate(postCursor.next.spec.title,20)}"></span>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="postFooterinfo u-textAlignCenter">
+          <img
+            alt=""
+            th:src="${post.owner.avatar}"
+            class="avatar avatar-64 photo"
+            height="64"
+            width="64"
+            decoding="async"
+          />
+          <h3 class="author-name" th:text="${post.owner.displayName}"></h3>
+          <div class="author-description">©版权信息：可以转载，请署名，并保留原文地址，尊重版权</div>
+          <div class="author-meta">
+            <span class="author-meta-item"><span class="icon-link"></span><a href="/" th:text="${site.url}"></a></span>
+          </div>
+        </div>
+      </section>
+    </main>
   </th:block>
 </html>

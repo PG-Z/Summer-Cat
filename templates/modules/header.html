@@ -1,0 +1,20 @@
+<header id="header" class="site-header u-textAlignCenter">
+  <div class="header-inner">
+    <h1 class="site-title">
+      <a href="/" th:title="${site?.title}" th:text="${site?.title}"></a>
+    </h1>
+    <p class="site-description" th:text="${site?.subtitle}"></p>
+    <div class="social-links">
+      <span class="social-link">
+        <a href="/feed/" target="_blank"> <span class="icon-rss"></span></a>
+      </span>
+      <span class="social-link">
+        <th:block th:if="${pluginFinder.available('PluginSearchWidget')}">
+          <a href="javascript:SearchWidget.open();" aria-label="Search in site" class="opensearch">
+            <span class="icon-search"></span>
+          </a>
+        </th:block>
+      </span>
+    </div>
+  </div>
+</header>
