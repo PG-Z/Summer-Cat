@@ -776,6 +776,21 @@ input[disabled] {
     transform: translate3d(0, -3px, 0)
 }
 
+.moment-footer .tag {
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, .44);
+  display: inline-block;
+  font-size: 12px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  padding: 2px 9px
+}
+.moment-footer a{
+  text-decoration: none;
+}
+
 .butterBar {
     margin-left: 36%;
     max-width: 640px;

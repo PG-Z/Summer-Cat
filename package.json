@@ -1,28 +1,23 @@
 {
-  "description": "A development starter theme with modern front-end technology stack for Halo",
+  "description": "single column halo theme.",
   "keywords": [
     "halo",
     "halo-theme"
   ],
-  "homepage": "https://github.com/halo-dev/theme-modern-starter#readme",
+  "homepage": "https://github.com/PG-Z/Summer-Cat#readme",
   "bugs": {
-    "url": "https://github.com/halo-dev/theme-modern-starter/issues"
+    "url": "https://github.com/PG-Z/Summer-Cat/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/halo-dev/theme-modern-starter"
+    "url": "https://github.com/PG-Z/Summer-Cat"
   },
   "license": "GPL-3.0",
-  "author": {
-    "name": "Halo",
-    "email": "hi@halo.run",
-    "url": "https://github.com/halo-dev"
-  },
   "maintainers": [
     {
-      "name": "Ryan Wang",
-      "email": "i@ryanc.cc",
-      "url": "https://github.com/ruibaby"
+      "name": "pg-z",
+      "email": "cat@aifeel",
+      "url": "https://github.com/PG-Z"
     }
   ],
   "scripts": {

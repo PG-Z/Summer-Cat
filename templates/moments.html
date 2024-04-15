@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content}, header = ~{modules/header::content}, navbar = ~{}, ajaxscrolljs = ~{::ajaxscrolljs})}"
+>
+  <th:block th:fragment="content">
+    <main class="main-content">
+      <header class="archive-header u-textAlignCenter">
+        <h1 class="archive-title"><span>瞬间的美丽，刹那间的永恒</span></h1>
+        <div class="taxonomy-description"><p>在那一瞬间，美如同绽放的烟火，绚烂而震撼，让人心驰神往。</p></div>
+        <button class="button termlike" data-action="termlike" data-action-id="87">
+          <span class="count" th:text="${#lists.size(moments.items)}"></span>
+        </button>
+      </header>
+      <section class="blockGroup">
+        <th:block th:each="moment : ${moments.items}">
+          <article class="block--inset block--list block">
+            <div class="block-postMetaWrap u-textAlignCenter">
+              <time
+                class="article-date"
+                itemprop="datePublished"
+                th:datetime="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
+                th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
+              ></time>
+            </div>
+            <div class="block-snippet block-snippet--subtitle grap moment-footer" itemprop="about">
+              <p th:utext="${moment.spec.content?.html}"></p>
+            </div>
+            <div class="block-footer">
+              By
+              <th:block th:text="${moment.owner?.displayName}" />
+              . In
+              <th:block th:if="${not #lists.isEmpty(moment.spec.tags)}">
+                <th:block th:each="tag : ${moment.spec.tags}"> <span th:text="${tag}" />. </th:block>
+              </th:block>
+
+              <div class="block-footer-inner">
+                <th:block th:text="${moment.stats?.upvote}" />
+                喜欢 .
+                <th:block th:text="${moment.stats?.totalComment}" />
+                回复.
+              </div>
+            </div>
+          </article>
+        </th:block>
+      </section>
+
+      <th:block th:if="${moments.items > 1}" th:replace="~{modules/moments-paginator :: paginator('',${moments})}" />
+    </main>
+  </th:block>
+</html>
