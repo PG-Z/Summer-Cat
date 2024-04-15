@@ -25,6 +25,7 @@
             </div>
             <div class="block-snippet block-snippet--subtitle grap moment-footer" itemprop="about">
               <p th:utext="${moment.spec.content?.html}"></p>
+              <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
             </div>
             <div class="block-footer">
               By
@@ -45,7 +46,10 @@
         </th:block>
       </section>
 
-      <th:block th:if="${moments.items > 1}" th:replace="~{modules/moments-paginator :: paginator('',${moments})}" />
+      <th:block
+        th:if="${moments.items > 1}"
+        th:replace="~{modules/moment/moments-paginator :: paginator('',${moments})}"
+      />
     </main>
   </th:block>
 </html>

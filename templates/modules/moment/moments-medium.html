@@ -1,0 +1,14 @@
+<th:block th:fragment="medium(moment)" th:if="${not #lists.isEmpty(moment.spec.content.medium)}">
+  <table style="width: 100%; height: 306px" th:if="${#strings.contains(moment.spec.content.medium,'PHOTO')}">
+    <tr style="height: 50pt" th:each="row : ${#numbers.sequence(0, moment.spec.content.medium.size(), 3)}">
+      <td
+        style="height: 50pt; padding: 5px"
+        height="50"
+        th:each="index : ${#numbers.sequence(row, row + 2)}"
+        th:if="${index &lt; moment.spec.content.medium.size()}"
+      >
+        <img th:src="${moment.spec.content.medium[index].url}" />
+      </td>
+    </tr>
+  </table>
+</th:block>

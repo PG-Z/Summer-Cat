@@ -6,7 +6,7 @@
     <p class="site-description" th:text="${site?.subtitle}"></p>
     <div class="social-links">
       <span class="social-link">
-        <a href="/feed.xml/" target="_blank"> <span class="icon-rss"></span></a>
+        <a href="/feed.xml" target="_blank"> <span class="icon-rss"></span></a>
       </span>
       <span class="social-link">
         <th:block th:if="${pluginFinder.available('PluginSearchWidget')}">
