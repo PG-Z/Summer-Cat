@@ -39,22 +39,32 @@
         >
           <h2 class="screen-reader-text">文章导航</h2>
           <div class="nav-links">
-            <div class="nav-previous" th:style="'visibility:' + ${postCursor.hasPrevious()?'block':'hidden'}">
-              <a
-                th:href="@{${postCursor.previous.status.permalink}}"
-                th:title="${postCursor.previous.spec.title}"
-                rel="prev"
+            <th:block th:if="${postCursor.hasPrevious()}">
+              <div
+                class="nav-previous"
+                th:style="'visibility:' + ${postCursor.hasPrevious()?'block':'hidden'}+';background-image: url('+${postCursor.previous.spec.cover}+')'"
               >
-                <span class="meta-nav">Previous</span>
-                <span class="post-title" th:text="${#strings.abbreviate(postCursor.previous.spec.title,20)}"></span>
-              </a>
-            </div>
-            <div class="nav-next" th:style="'visibility:' + ${postCursor.hasNext()?'block':'hidden'}">
-              <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}" rel="next">
-                <span class="meta-nav">Next</span>
-                <span class="post-title" th:text="${#strings.abbreviate(postCursor.next.spec.title,20)}"></span>
-              </a>
-            </div>
+                <a
+                  th:href="@{${postCursor.previous.status.permalink}}"
+                  th:title="${postCursor.previous.spec.title}"
+                  rel="prev"
+                >
+                  <span class="meta-nav">Previous</span>
+                  <span class="post-title" th:text="${#strings.abbreviate(postCursor.previous.spec.title,20)}"></span>
+                </a>
+              </div>
+            </th:block>
+            <th:block th:if="${postCursor.hasNext()}">
+              <div
+                class="nav-next"
+                th:style="'visibility:' + ${postCursor.hasNext()?'block':'hidden'}+';background-image: url('+${postCursor.next.spec.cover}+')'"
+              >
+                <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}" rel="next">
+                  <span class="meta-nav">Next</span>
+                  <span class="post-title" th:text="${#strings.abbreviate(postCursor.next.spec.title,20)}"></span>
+                </a>
+              </div>
+            </th:block>
           </div>
         </nav>
 

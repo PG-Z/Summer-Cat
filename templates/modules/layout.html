@@ -12,6 +12,19 @@
     <meta name="robots" content="max-image-preview:large" />
     <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
     <link
+      rel="shortcut icon"
+      th:if="${not #strings.isEmpty(site.favicon)}"
+      th:href="${site.favicon}"
+      type="image/vnd.microsoft.icon"
+    />
+    <link
+      rel="shortcut icon"
+      th:if="${#strings.isEmpty(site.favicon)}"
+      th:href="@{/assets/dist/images/favicon.png?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/images/favicon.png"
+      type="image/vnd.microsoft.icon"
+    />
+    <link
       rel="stylesheet"
       th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}"
       href="./assets/dist/style.css"
@@ -20,6 +33,11 @@
       rel="stylesheet"
       th:href="@{/assets/dist/css/bundle.css?v={version}(version=${theme.spec.version})}"
       href="./assets/dist/css/bundle.css"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/misc.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/misc.css"
     />
     <script th:src="@{/assets/dist/js/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
     <script th:src="@{/assets/dist/js/jquery-migrate.min.js?v={version}(version=${theme.spec.version})}"></script>
