@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title th:text="${site.title}"></title>
+    <script>
+      (function (html) {
+        html.className = html.className.replace(/\bno-js\b/, "js");
+      })(document.documentElement);
+    </script>
+    <meta name="robots" content="max-image-preview:large" />
+    <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
     <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
     <link rel="stylesheet" th:href="@{/assets/dist/css/bundle.css}" href="./assets/dist/css/bundle.css" />
     <script th:src="@{/assets/dist/main.js}"></script>

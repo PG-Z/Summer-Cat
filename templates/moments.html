@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content}, header = ~{modules/header::content}, navbar = ~{}, ajaxscrolljs = ~{::ajaxscrolljs})}"
+  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content})}"
 >
   <th:block th:fragment="content">
     <main class="main-content">
@@ -32,7 +32,7 @@
               <th:block th:text="${moment.owner?.displayName}" />
               . In
               <th:block th:if="${not #lists.isEmpty(moment.spec.tags)}">
-                <th:block th:each="tag : ${moment.spec.tags}"> <span th:text="${tag}" />. </th:block>
+                <th:block th:each="tag : ${moment.spec.tags}"><span th:text="${tag}" />.</th:block>
               </th:block>
 
               <div class="block-footer-inner">
