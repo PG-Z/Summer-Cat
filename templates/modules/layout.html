@@ -11,20 +11,29 @@
     </script>
     <meta name="robots" content="max-image-preview:large" />
     <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
-    <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
-    <link rel="stylesheet" th:href="@{/assets/dist/css/bundle.css}" href="./assets/dist/css/bundle.css" />
-    <script th:src="@{/assets/dist/main.js}"></script>
-    <script th:src="@{/assets/dist/js/bundle.js}"></script>
-    <script th:src="@{/assets/dist/js/jquery.min.js}"></script>
-    <script th:src="@{/assets/dist/js/jquery-migrate.min.js}"></script>
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/style.css"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/bundle.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/bundle.css"
+    />
+    <script th:src="@{/assets/dist/js/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/dist/js/jquery-migrate.min.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/dist/main.js?v={version}(version=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/dist/js/bundle.js?v={version}(version=${theme.spec.version})}"></script>
   </head>
 
-  <body class="home blog">
+  <body>
     <div class="surface-content">
       <th:block th:replace="~{modules/header :: header}"></th:block>
       <th:block th:replace="~{modules/nav :: nav}"></th:block>
       <th:block th:replace="${content}" />
       <th:block th:replace="~{modules/footer :: footer}"></th:block>
     </div>
+    <th:block th:replace="~{modules/widgets/to-top :: toTop}"></th:block>
   </body>
 </html>

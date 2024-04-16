@@ -28,7 +28,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "alpinejs": "^3.13.7"
+    "alpinejs": "^3.13.7",
+    "jquery": "^3.7.1"
   },
   "lint-staged": {
     "*.{ts,json,yaml,yml,html}": [

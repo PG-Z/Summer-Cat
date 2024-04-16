@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(title = ${site.title}, hero = null, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
+    <div class="page404">
+      <b>404</b>
+      <p><a href="/">没找到任何内容，返回首页</a></p>
+    </div>
+  </th:block>
+</html>

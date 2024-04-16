@@ -154,7 +154,7 @@ input[disabled] {
 }
 
 [class*=" icon-"], [class^=icon-] {
-  font-family: icomoon !important;
+  font-family: icomoon, serif !important;
   speak: none;
   font-style: normal;
   font-weight: 400;
