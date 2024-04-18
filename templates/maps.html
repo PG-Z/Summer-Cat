@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content})}"
+>
+  <th:block th:fragment="content">
+    <main class="main-content container">
+      <header class="archive-header u-textAlignCenter">
+        <h2 class="archive-title">旅行地图</h2>
+      </header>
+      <section class="blockGroup" th:if="${pluginFinder.available('PluginMaps')}">
+        <th:block th:replace="~{plugin:PluginMaps:map-marker :: marker()}" />
+      </section>
+    </main>
+  </th:block>
+</html>

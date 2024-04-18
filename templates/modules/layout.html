@@ -13,12 +13,6 @@
     <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
     <link
       rel="shortcut icon"
-      th:if="${not #strings.isEmpty(site.favicon)}"
-      th:href="${site.favicon}"
-      type="image/vnd.microsoft.icon"
-    />
-    <link
-      rel="shortcut icon"
       th:if="${#strings.isEmpty(site.favicon)}"
       th:href="@{/assets/dist/images/favicon.png?v={version}(version=${theme.spec.version})}"
       href="./assets/dist/images/favicon.png"

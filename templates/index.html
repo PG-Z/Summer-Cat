@@ -22,7 +22,9 @@
               <p><a th:href="@{${post.status?.permalink}}" class="more-link">Read More.</a></p>
             </div>
             <div class="block-footer">
-              By <th:block th:text="${post.owner?.displayName}" /> . In
+              By
+              <th:block th:text="${post.owner?.displayName}" />
+              . In
               <th:block th:if="${not #lists.isEmpty(post.categories)}">
                 <th:block th:each="category : ${post.categories}">
                   <a
@@ -35,13 +37,15 @@
               </th:block>
 
               <div class="block-footer-inner">
-                <th:block th:text="${post.stats?.upvote}" /> 喜欢 . <th:block th:text="${post.stats?.comment}" /> 回复.
+                <th:block th:text="${post.stats?.upvote}" />
+                喜欢 .
+                <th:block th:text="${post.stats?.comment}" />
+                回复.
               </div>
             </div>
           </article>
         </th:block>
       </section>
-
       <th:block th:if="${posts.totalPages > 1}" th:replace="~{modules/post-paginator :: paginator('',${posts})}" />
     </main>
   </th:block>
