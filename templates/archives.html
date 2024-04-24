@@ -4,32 +4,28 @@
   th:replace="~{modules/layout :: html(title = '归档', content = ~{::content})}"
 >
   <th:block th:fragment="content">
-    <main class="main-content container">
-      <header class="archive-header u-textAlignCenter">
-        <!--        <h1 class="archive-title">年度归档</h1>-->
-        <div class="taxonomy-description">时间的印记，带走的只是断断续续的回忆。</div>
-      </header>
+    <main class="main-content">
+      <section class="section-body">
+        <header class="section-header u-textAlignCenter">
+          <h2 class="block-title">归档</h2>
+        </header>
 
-      <section class="blockGroup">
-        <th:block th:each="archives, status : ${archives.items}">
-          <th:block th:each="archive : ${archives}">
-            <article class="block--inset block--list block">
-              <h2 class="block-title post-featured" itemprop="headline">
-                <a th:text="${archive.year}"></a>
-              </h2>
+        <div class="fancy-archive">
+          <th:block th:each="archives, status : ${archives.items}">
+            <th:block th:each="archive : ${archives}">
+              <h3 class="archive-year" th:text="${archive.year}"></h3>
               <th:block th:each="month : ${archive.months}">
-                <div class="block-archiveMetaWrap u-textAlignCenter" th:each="post : ${month.posts}">
-                  <a th:href="@{${post.status?.permalink}}" th:text="${post.spec.title}+' - '"></a>
-                  <time
-                    class="article-date"
-                    th:datetime="${#temporals.format(post.spec.publishTime, 'MMMM dd')}"
-                    th:text="${#temporals.format(post.spec.publishTime, 'MMMM dd')}"
-                  ></time>
-                </div>
+                <h3 class="archive-month" th:text="${month.month} + ' 月'"></h3>
+                <ul class="fancy-ul" th:each="post : ${month.posts}">
+                  <li>
+                    <a th:href="@{${post.status?.permalink}}" th:text="${post.spec.title}+' - '"></a>
+                    <time class="article-date" th:text="${#temporals.format(post.spec.publishTime, 'MM-dd')}"></time>
+                  </li>
+                </ul>
               </th:block>
-            </article>
+            </th:block>
           </th:block>
-        </th:block>
+        </div>
       </section>
     </main>
   </th:block>
