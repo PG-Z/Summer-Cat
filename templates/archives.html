@@ -16,8 +16,8 @@
               <h3 class="archive-year" th:text="${archive.year}"></h3>
               <th:block th:each="month : ${archive.months}">
                 <h3 class="archive-month" th:text="${month.month} + ' 月'"></h3>
-                <ul class="fancy-ul" th:each="post : ${month.posts}">
-                  <li>
+                <ul class="fancy-ul">
+                  <li th:each="post : ${month.posts}">
                     <a th:href="@{${post.status?.permalink}}" th:text="${post.spec.title}+' - '"></a>
                     <time class="article-date" th:text="${#temporals.format(post.spec.publishTime, 'MM-dd')}"></time>
                   </li>
