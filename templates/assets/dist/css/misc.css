@@ -369,7 +369,7 @@ svg:not(:root) {
   background-position: 50%;
   background-size: cover;
   box-sizing: border-box;
-  color: rgba(255, 255, 255, .97);
+  /*color: rgba(255, 255, 255, .97);*/
   padding: 140px 40px;
   position: relative
 }
@@ -379,7 +379,7 @@ svg:not(:root) {
 }
 
 .site-header:before {
-  background-color: rgba(0, 0, 0, .1);
+  /*background-color: rgba(0, 0, 0, .1);*/
   bottom: 0;
   content: "";
   left: 0;
@@ -429,7 +429,7 @@ svg:not(:root) {
 
 .block-postMetaWrap {
   color: var(--text-light-color);
-  font-family: Open Sans;
+  font-family: Open Sans, serif;
   font-size: 14px;
   margin-bottom: 20px
 }
@@ -711,7 +711,7 @@ svg:not(:root) {
 }
 
 .grap h4 {
-  color: --text-gray-color;
+  color: var(--text-gray-color);
   font-size: 18px
 }
 
