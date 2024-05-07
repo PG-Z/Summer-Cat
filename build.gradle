@@ -3,10 +3,12 @@ plugins {
 }
 
 group 'run.halo'
-version '1.0'
 
 repositories {
   mavenCentral()
+  maven { url 'https://s01.oss.sonatype.org/content/repositories/releases' }
+  maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
+  maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {

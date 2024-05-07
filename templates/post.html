@@ -19,6 +19,10 @@
         </header>
         <div class="grap" th:utext="${post.content.content}"></div>
 
+        <section class="blockGroup" th:if="${pluginFinder.available('PluginMaps')}">
+          <th:block th:replace="~{plugin:PluginMaps:map-marker-append :: marker-addon(${post.metadata.name})}" />
+        </section>
+
         <div class="post--keywords" itemprop="keywords">
           <th:block th:if="${not #lists.isEmpty(post.tags)}">
             <th:block th:each="tag : ${post.tags}">
