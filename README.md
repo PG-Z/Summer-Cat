@@ -8,6 +8,7 @@
 - [x] [文章搜索](https://github.com/halo-sigs/plugin-search-widget)（插件）
 - [X] [评论系统](https://github.com/halo-sigs/plugin-comment-widget)（插件）
 - [x] [地图标记](https://github.com/PG-Z/plugin-map-marker)（/maps）
+- [X] [瞬间管理](https://github.com/halo-sigs/plugin-moments)（/moments）
 
 ## TODO
 - [ ] 细节优化
@@ -15,7 +16,6 @@
 - [ ] [图库](https://halo.run/store/apps/app-BmQJW)（/photos）
 
 ## 技巧
-
 
 
 
