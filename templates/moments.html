@@ -6,44 +6,62 @@
   <th:block th:fragment="content">
     <main class="main-content">
       <header class="archive-header u-textAlignCenter">
-        <h1 class="archive-title"><span>瞬间的美丽，刹那间的永恒</span></h1>
-        <div class="taxonomy-description"><p>在那一瞬间，美如同绽放的烟火，绚烂而震撼，让人心驰神往。</p></div>
+        <h1 class="archive-title"><span>Notes</span></h1>
         <button class="button termlike" data-action="termlike" data-action-id="87">
           <span class="count" th:text="${#lists.size(moments.items)}"></span>
         </button>
       </header>
-      <section class="blockGroup">
-        <th:block th:each="moment : ${moments.items}">
-          <article class="block--inset block--list block">
-            <div class="block-postMetaWrap u-textAlignCenter">
-              <time
-                class="article-date"
-                itemprop="datePublished"
-                th:datetime="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
-                th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
-              ></time>
-            </div>
-            <div class="block-snippet block-snippet--subtitle grap moment-footer" itemprop="about">
-              <p th:utext="${moment.spec.content?.html}"></p>
+      <section class="notes-box">
+<!--        <th:block th:each="moment : ${moments.items}">-->
+<!--          <article class="block&#45;&#45;inset block&#45;&#45;list block">-->
+<!--            <div class="block-postMetaWrap u-textAlignCenter">-->
+<!--              <time-->
+<!--                class="article-date"-->
+<!--                itemprop="datePublished"-->
+<!--                th:datetime="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"-->
+<!--                th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"-->
+<!--              ></time>-->
+<!--            </div>-->
+<!--            <div class="block-snippet block-snippet&#45;&#45;subtitle grap moment-footer" itemprop="about">-->
+<!--              <p th:utext="${moment.spec.content?.html}"></p>-->
+<!--              <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />-->
+<!--            </div>-->
+<!--            <div class="block-footer">-->
+<!--              By-->
+<!--              <th:block th:text="${moment.owner?.displayName}" />-->
+<!--              . In-->
+<!--              <th:block th:if="${not #lists.isEmpty(moment.spec.tags)}">-->
+<!--                <th:block th:each="tag : ${moment.spec.tags}"><span th:text="${tag}" />.</th:block>-->
+<!--              </th:block>-->
+
+<!--              <div class="block-footer-inner">-->
+<!--                <th:block th:text="${moment.stats?.upvote}" />-->
+<!--                喜欢 .-->
+<!--                <th:block th:text="${moment.stats?.totalComment}" />-->
+<!--                回复.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </article>-->
+<!--        </th:block>-->
+
+        <ul>
+          <li th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
+            <div class="notes-content">
+              <p th:utext="${content.raw}"></p>
+<!--              <p th:utext="${content?.html}"></p>-->
               <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
             </div>
-            <div class="block-footer">
-              By
-              <th:block th:text="${moment.owner?.displayName}" />
-              . In
-              <th:block th:if="${not #lists.isEmpty(moment.spec.tags)}">
-                <th:block th:each="tag : ${moment.spec.tags}"><span th:text="${tag}" />.</th:block>
-              </th:block>
 
-              <div class="block-footer-inner">
-                <th:block th:text="${moment.stats?.upvote}" />
-                喜欢 .
-                <th:block th:text="${moment.stats?.totalComment}" />
-                回复.
+            <div class="notes-info">
+              <div class="time">
+                <span class="icon-clock" th:text="${#dates.format(moment.spec.releaseTime,'yyyy年MM月dd日')}"></span>
               </div>
             </div>
-          </article>
-        </th:block>
+            <div class="view-detail"><a th:href="${'/moments/'+moment.metadata.name}">查看详情</a>
+            </div>
+          </li>
+        </ul>
+        
       </section>
 
       <th:block
