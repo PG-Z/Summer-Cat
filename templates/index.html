@@ -17,7 +17,7 @@
               ></time>
             </div>
             <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
-              <p><img decoding="async" class="aligncenter size-full" th:src="${post.spec?.cover}" /></p>
+              <th:block th:replace="~{modules/article/article-medium :: article(${post})}" />
               <p th:text="${post.status?.excerpt}"></p>
               <p><a th:href="@{${post.status?.permalink}}" class="more-link">Read More.</a></p>
             </div>

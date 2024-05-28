@@ -17,7 +17,9 @@
 
 ## 技巧
 
+### 设置N个主图
 
+在文章主图栏设置主图时, 通过`#`连接. 例如: /img/cover_1.png#/img/cover_2.png#/img/cover_N.png
 
 ## 鸣谢
 > 基于 [Puma](https://github.com/bigfa/Puma) 制作，原作者为 `bigfa`，感谢这么优秀的主题!

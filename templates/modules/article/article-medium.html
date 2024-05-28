@@ -1,0 +1,19 @@
+<th:block th:fragment="article(post)" th:with="cover=${post.spec?.cover}">
+  <th:block th:with="coveArr=${cover != null && cover !='' ? cover.split('#') : null}">
+    <table class="article-medium-table" th:if="${coveArr != null and #arrays.length(coveArr) > 0}">
+      <tr
+        th:each="row : ${#numbers.sequence(0, #arrays.length(coveArr) - 1, 2)}"
+        th:classappend="${row + 1 >= coveArr.length ? 'article-medium-full-tr' : ''}"
+      >
+        <td th:if="${row < coveArr.length}">
+          <img th:src="${coveArr[row]}" />
+        </td>
+        <td th:if="${row + 1 < coveArr.length}">
+          <img th:src="${coveArr[row + 1]}" />
+        </td>
+        <!-- 如果只有一个图像，补充一个空的单元格 -->
+        <td th:if="${row + 1 >= coveArr.length}"></td>
+      </tr>
+    </table>
+  </th:block> </th:block
+>z
