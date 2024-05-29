@@ -56,7 +56,10 @@
           </article>
         </th:block>
       </section>
-      <th:block th:if="${posts.totalPages > 1}" th:replace="~{modules/post-paginator :: paginator('',${posts})}" />
+      <th:block
+        th:if="${posts.totalPages > 1}"
+        th:replace="~{modules/article/post-paginator :: paginator('',${posts})}"
+      />
     </main>
   </th:block>
 </html>
