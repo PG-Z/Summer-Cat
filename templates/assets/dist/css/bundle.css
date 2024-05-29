@@ -236,7 +236,6 @@ input[disabled] {
   background-origin: border-box;
   background-color: #f0f0f0;
   position: relative;
-  background-image: url(../images/banner.jpg);
   box-sizing: border-box;
   padding: 140px 40px
 }

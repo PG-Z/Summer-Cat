@@ -13,5 +13,5 @@ spec:
   website: https://aiheiyo.top
   settingName: "Summer-Cat-setting"
   configMapName: "Summer-Cat-configMap"
-  version: 1.2.2-beta.1
+  version: 1.2.2-beta.2
   require: 2.14.0

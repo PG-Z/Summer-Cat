@@ -9,13 +9,7 @@
   </script>
   <meta name="robots" content="max-image-preview:large" />
   <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
-  <link
-    rel="shortcut icon"
-    th:if="${#strings.isEmpty(site.favicon)}"
-    th:href="@{/assets/dist/images/favicon.png?v={version}(version=${theme.spec.version})}"
-    href="./assets/dist/images/favicon.png"
-    type="image/vnd.microsoft.icon"
-  />
+  <link rel="shortcut icon" th:if="${#strings.isEmpty(site.favicon)}" th:href="${theme.config.base.favicon}" />
   <link
     rel="stylesheet"
     th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}"

@@ -1,4 +1,8 @@
-<header id="header" class="site-header u-textAlignCenter">
+<header
+  id="header"
+  class="site-header u-textAlignCenter"
+  th:style="'background-image: url(' + ${theme.config.base.banner} +')'"
+>
   <div class="header-inner">
     <h1 class="site-title">
       <a href="/" th:title="${site?.title}" th:text="${site?.title}"></a>
