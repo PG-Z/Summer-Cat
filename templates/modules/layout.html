@@ -1,43 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" th:fragment="html (content)">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      (function (html) {
-        html.className = html.className.replace(/\bno-js\b/, "js");
-      })(document.documentElement);
-    </script>
-    <meta name="robots" content="max-image-preview:large" />
-    <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
-    <link
-      rel="shortcut icon"
-      th:if="${#strings.isEmpty(site.favicon)}"
-      th:href="@{/assets/dist/images/favicon.png?v={version}(version=${theme.spec.version})}"
-      href="./assets/dist/images/favicon.png"
-      type="image/vnd.microsoft.icon"
-    />
-    <link
-      rel="stylesheet"
-      th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}"
-      href="./assets/dist/style.css"
-    />
-    <link
-      rel="stylesheet"
-      th:href="@{/assets/dist/css/bundle.css?v={version}(version=${theme.spec.version})}"
-      href="./assets/dist/css/bundle.css"
-    />
-    <link
-      rel="stylesheet"
-      th:href="@{/assets/dist/css/misc.css?v={version}(version=${theme.spec.version})}"
-      href="./assets/dist/css/misc.css"
-    />
-    <script th:src="@{/assets/dist/js/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
-    <script th:src="@{/assets/dist/js/jquery-migrate.min.js?v={version}(version=${theme.spec.version})}"></script>
-    <script th:src="@{/assets/dist/main.js?v={version}(version=${theme.spec.version})}"></script>
-    <script th:src="@{/assets/dist/js/bundle.js?v={version}(version=${theme.spec.version})}"></script>
-  </head>
+  <head th:replace="~{modules/head :: head}"></head>
 
   <body>
     <div class="surface-content">

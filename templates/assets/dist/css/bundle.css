@@ -580,100 +580,10 @@ input[disabled] {
   padding: 10px
 }
 
-.commentlist .comment .comment-author .avatar {
-  float: left;
-  border-radius: 100%;
-  margin-right: 10px;
-  transition: all .5s
-}
-
-.commentlist .comment-metadata {
-  color: rgba(0, 0, 0, .44);
-  font-style: italic;
-  font-size: 12px
-}
-
-.commentlist .comment .comment-body:hover .comment-author .avatar {
-  transform: rotate(360deg)
-}
-
-.commentlist .children {
-  margin-left: 50px
-}
-
-.commentlist .depth-2 .children {
-  margin-left: 0
-}
-
-.comment-body {
-  border-bottom: 1px solid rgba(0, 0, 0, .05);
-  padding-top: 25px;
-  padding-bottom: 25px;
-  position: relative
-}
-
-.comment-meta {
-  overflow: hidden;
-  font-size: 14px
-}
-
-.comment-meta .says {
-  display: none
-}
-
-.comment-content {
-  margin-top: 10px
-}
-
 .reply {
   position: absolute;
   top: 20px;
   right: 0
-}
-
-.reply .comment-reply-link {
-  background-color: #27ae60;
-  color: #fff;
-  font-size: 12px;
-  padding: 3px 8px;
-  border-radius: 2px
-}
-
-.comment-respond {
-  margin-top: 30px
-}
-
-.comment-form {
-  padding: 20px 0
-}
-
-.comment-form label {
-  display: block;
-  margin-bottom: 3px;
-  cursor: pointer
-}
-
-.comment-form p {
-  margin-bottom: 15px
-}
-
-.comment-form .comment-form-author input, .comment-form .comment-form-email input, .comment-form .comment-form-url input {
-  border: 1px rgba(0, 0, 0, .05) solid;
-  height: 30px;
-  padding: 0 10px;
-  width: 280px;
-  font-size: 14px;
-  border-radius: 3px;
-  color: rgba(0, 0, 0, .6)
-}
-
-.comment-form .comment-form-comment textarea {
-  resize: none;
-  width: 100%;
-  border: 1px rgba(0, 0, 0, .05) solid;
-  box-sizing: border-box;
-  padding: 10px;
-  border-radius: 3px
 }
 
 .responsesWrapper {
@@ -694,25 +604,6 @@ input[disabled] {
 .form-submit .submit:hover {
   background-color: #27ae60;
   color: #fff
-}
-
-.comments-title {
-  font-weight: 700;
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, .05);
-  font-size: 12px
-}
-
-.comment-reply-title {
-  font-size: 18px;
-  color: rgba(0, 0, 0, .44)
-}
-
-.comment-awaiting-moderation {
-  background-color: #fcf8e3;
-  color: #c09853;
-  font-size: 12px;
-  padding: 2px 6px
 }
 
 .required {
@@ -840,30 +731,6 @@ input[disabled] {
   .back-to-top {
     display: none
   }
-}
-
-.comment-navigation {
-  padding: 20px 0
-}
-
-.comment-navigation .nav-next, .comment-navigation .nav-previous, .comment-navigation .page-link-item {
-  display: inline-block;
-  background-color: #fafafa;
-  padding: 3px 10px;
-  border: 1px solid rgba(0, 0, 0, .05);
-  color: rgba(0, 0, 0, .6);
-  font-size: 12px;
-  border-radius: 3px;
-  margin: 0 5px
-}
-
-.comment-navigation .nav-next:hover, .comment-navigation .nav-previous:hover, .comment-navigation .page-link-item:hover {
-  background-color: #27ae60;
-  color: #fff
-}
-
-.comment-navigation .nav-next a, .comment-navigation .nav-previous a, .comment-navigation .page-link-item a {
-  display: block
 }
 
 .posts-nav {

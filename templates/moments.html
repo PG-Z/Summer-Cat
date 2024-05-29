@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content})}"
+  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content}, _head = ~{::head})}"
 >
+  <th:block th:fragment="head">
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/notes.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/notes.css"
+    />
+  </th:block>
   <th:block th:fragment="content">
     <main class="main-content">
       <header class="archive-header u-textAlignCenter">

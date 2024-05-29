@@ -1,0 +1,37 @@
+
+.article-medium-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.article-medium-table td {
+  padding: 5px;
+  /*display: flex;*/
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  height: 200px;           /* 设置固定高度 */
+  box-sizing: border-box;  /* 包含 padding 在内的宽高计算 */
+}
+
+.article-medium-table img {
+  width: 100%;       /* 宽度铺满 */
+  height: 100%;      /* 高度铺满 */
+  object-fit: cover; /* 保持宽高比并覆盖整个容器 */
+  border-radius: 8px;
+}
+
+/* 如果只有一个图片，确保其宽度为100% */
+.article-medium-full-tr td {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-medium-full-tr img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* 保持图片宽高比，确保整个图片显示 */
+}
