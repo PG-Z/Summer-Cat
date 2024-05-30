@@ -32,7 +32,7 @@
   content: '';
   display: block;
   width: 100%;
-  height: 30px;
+  height: 20px;
   /*position: absolute;*/
   top: 170px;
   left: 0;
@@ -195,14 +195,53 @@
 .medium-table td {
   padding: 5px;
   justify-content: center; /* 水平居中 */
-  align-items: center;     /* 垂直居中 */
-  height: 200px;           /* 设置固定高度 */
-  box-sizing: border-box;  /* 包含 padding 在内的宽高计算 */
+  align-items: center; /* 垂直居中 */
+  height: 200px; /* 设置固定高度 */
+  box-sizing: border-box; /* 包含 padding 在内的宽高计算 */
 }
 
 .medium-table img {
-  width: 100%;       /* 宽度铺满 */
-  height: 100%;      /* 高度铺满 */
+  width: 100%; /* 宽度铺满 */
+  height: 100%; /* 高度铺满 */
   object-fit: cover; /* 保持宽高比并覆盖整个容器 */
   border-radius: 8px;
 }
+
+.notes-box .top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.notes-box .top .left {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.notes-box .top .left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.notes-box .top .right {
+  width: calc(100% - 65px);
+}
+
+.notes-box .top .right .note-author {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.notes-box .top .right .note-date {
+  font-size: 13px;
+  font-weight: 400;
+  color: #999;
+}
+
