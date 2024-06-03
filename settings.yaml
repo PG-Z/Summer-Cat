@@ -16,11 +16,6 @@ spec:
           label: 主题favicon
           help: 注意：[Halo >> 设置 >> favicon]优先级更高
           value: https://s2.loli.net/2024/05/29/YeBxEhvcPzpmD8u.png
-        - $formkit: attachment
-          name: favicon
-          label: 主题favicon
-          help: 注意：[Halo >> 设置 >> favicon]优先级更高
-          value: https://s2.loli.net/2024/05/29/YeBxEhvcPzpmD8u.png
     - group: post
       label: 文章详情
       formSchema:
