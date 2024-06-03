@@ -1,0 +1,19 @@
+#toc {
+  position: fixed; /* 固定定位 */
+  top: 20%; /* 距离页面顶部的距离，可以根据需要调整 */
+  right: 10px; /* 距离页面右边的距离，可以根据需要调整 */
+  width: 180px; /* TOC宽度，可以根据需要调整 */
+  max-height: 80%; /* 最大高度，防止超出页面 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  font-size: 0.9rem;
+  /*background-color: #f9f9f9; !* 背景颜色 *!*/
+  padding: 10px; /* 内边距 */
+  border: 1px solid #ddd; /* 边框 */
+  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); !* 阴影效果 *!*/
+}
+
+@media (max-width: 867px) {
+  #toc {
+    display: none;
+  }
+}

@@ -10,6 +10,7 @@
   <meta name="robots" content="max-image-preview:large" />
   <title th:text="${#strings.defaultString(title, site.title +'&#8211; '+ site?.subtitle)}"></title>
   <link rel="shortcut icon" th:if="${#strings.isEmpty(site.favicon)}" th:href="${theme.config.base.favicon}" />
+  <script th:src="@{/assets/dist/js/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
   <link
     rel="stylesheet"
     th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}"
@@ -25,7 +26,6 @@
     th:href="@{/assets/dist/css/misc.css?v={version}(version=${theme.spec.version})}"
     href="./assets/dist/css/misc.css"
   />
-  <script th:src="@{/assets/dist/js/jquery.min.js?v={version}(version=${theme.spec.version})}"></script>
   <script th:src="@{/assets/dist/js/jquery-migrate.min.js?v={version}(version=${theme.spec.version})}"></script>
   <script th:src="@{/assets/dist/main.js?v={version}(version=${theme.spec.version})}"></script>
   <script th:src="@{/assets/dist/js/bundle.js?v={version}(version=${theme.spec.version})}"></script>
