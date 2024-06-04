@@ -4,11 +4,11 @@
   th:replace="~{modules/layout :: html(title = ${post.spec.title}, content = ~{::content}, _head = ~{::head}, _plugins = ~{::plugins})}"
 >
 
-<th:block th:if="${theme.config.post.toc}" th:fragment="plugins">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+<th:block th:if="${theme.config.toc.switch}" th:fragment="plugins">
+  <script th:src="${theme.config.toc.js}"></script>
   <script th:src="@{/assets/dist/plugins/tocmain.js?v={version}(version=${theme.spec.version})}"></script>
   <link rel="stylesheet" th:href="@{/assets/dist/plugins/tocmain.css?v={version}(version=${theme.spec.version})}" href="./assets/dist/plugins/tocmain.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.css">
+  <link rel="stylesheet" th:href="${theme.config.toc.css}">
 </th:block>
 
 <th:block th:fragment="content">

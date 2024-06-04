@@ -16,11 +16,11 @@ spec:
           label: 主题favicon
           help: 注意：[Halo >> 设置 >> favicon]优先级更高
           value: https://s2.loli.net/2024/05/29/YeBxEhvcPzpmD8u.png
-    - group: post
-      label: 文章详情
+    - group: toc
+      label: 文章目录
       formSchema:
         - $formkit: radio
-          name: toc
+          name: switch
           label: 目录展示
           value: false
           options:
@@ -28,6 +28,16 @@ spec:
               label: 展示
             - value: false
               label: 隐藏
+        - $formkit: attachment
+          name: js
+          label: JS 地址
+          help: 文章目录生成JS, 默认为[tocbot.min.js], 可以替换为自定义JS文件
+          value: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js
+        - $formkit: attachment
+          name: css
+          label: CSS 地址
+          help: 文章目录生成CSS, 默认为[tocbot.css], 可以替换为自定义css文件
+          value: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.css
     - group: beian
       label: 备案信息
       formSchema:
