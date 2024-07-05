@@ -168,45 +168,59 @@ input[disabled] {
 .icon-qq:before {
   content: "\e901";
 }
+
 .icon-wechat:before {
   content: "\e900";
 }
+
 .icon-weixin:before {
   content: "\e900";
 }
+
 .icon-location:before {
   content: "\e947";
 }
+
 .icon-clock:before {
   content: "\e94e";
 }
+
 .icon-reply:before {
   content: "\e96a";
 }
+
 .icon-search:before {
   content: "\e986";
 }
+
 .icon-link:before {
   content: "\e9cb";
 }
+
 .icon-heart:before {
   content: "\e9da";
 }
+
 .icon-cool2:before {
   content: "\e9ec";
 }
+
 .icon-arrow-up:before {
   content: "\ea32";
 }
+
 .icon-instagram:before {
   content: "\ea92";
 }
+
 .icon-twitter:before {
   content: "\ea96";
 }
+
 .icon-sina-weibo:before {
   content: "\ea9a";
 }
+
 .icon-rss:before {
   content: "\ea9b";
 }
@@ -631,6 +645,13 @@ input[disabled] {
 .page404 b {
   font-size: 120px;
   color: rgba(0, 0, 0, .44)
+}
+
+.page404 .page404_friendlyTips {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow 5s infinite;
 }
 
 .author-meta {
