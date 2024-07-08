@@ -14,7 +14,7 @@
     <main class="main-content">
       <section class="blockGroup">
         <th:block th:each="post : ${posts}">
-          <article class="block--inset block--list block">
+          <article class="block--inset block--list block" th:classappend="${post.spec.pinned} ? ' sticky'">
             <h2 class="block-title post-featured" itemprop="headline">
               <a th:href="@{${post.status?.permalink}}" th:text="${post.spec.title}"></a>
             </h2>
