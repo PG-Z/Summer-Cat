@@ -148,7 +148,10 @@ input[disabled] {
 @font-face {
   font-family: icomoon;
   src: url(../fonts/icomoon.eot?jh4rkv);
-  src: url(../fonts/icomoon.eot?jh4rkv#iefix) format('embedded-opentype'), url(../fonts/icomoon.ttf?jh4rkv) format('truetype'), url(../fonts/icomoon.woff?jh4rkv) format('woff'), url(../fonts/icomoon.svg?jh4rkv#icomoon) format('svg');
+  src: url(../fonts/icomoon.eot?jh4rkv#iefix) format('embedded-opentype'),
+  url(../fonts/icomoon.ttf?jh4rkv) format('truetype'),
+  url(../fonts/icomoon.woff?jh4rkv) format('woff'),
+  url(../fonts/icomoon.svg?jh4rkv#icomoon) format('svg');
   font-weight: 400;
   font-style: normal
 }
@@ -200,6 +203,10 @@ input[disabled] {
 .icon-heart:before {
   content: "\e9da";
 }
+.icon-heart {
+  /*这个属性确保了元素是一个内联块级元素，从而允许应用变换和动画*/
+  display: inline-block;
+}
 
 .icon-cool2:before {
   content: "\e9ec";
@@ -223,6 +230,70 @@ input[disabled] {
 
 .icon-rss:before {
   content: "\ea9b";
+}
+
+footer .icon-animate {
+  animation: heartbeat-animate 1.2s ease-in-out infinite !important;
+}
+
+@-webkit-keyframes heartbeat-animate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.88);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.08);
+  }
+  50%, 70% {
+    transform: scale(1.08);
+  }
+}
+
+@-moz-keyframes heartbeat-animate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.88);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.08);
+  }
+  50%, 70% {
+    transform: scale(1.08);
+  }
+}
+
+@-o-keyframes heartbeat-animate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.88);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.08);
+  }
+  50%, 70% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes heartbeat-animate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.88);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.08);
+  }
+  50%, 70% {
+    transform: scale(1.08);
+  }
 }
 
 .u-textAlignCenter {
