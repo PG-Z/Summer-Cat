@@ -1,0 +1,24 @@
+<div class="u-textAlignCenter postsFooterNav" th:fragment="paginator(path,posts,slug)" aria-label="Page Navigation">
+  <div class="posts-nav">
+    <!-- page numbers -->
+    <th:block th:if="${posts.page > 3}">
+      <span aria-current="page" class="page-numbers current">1</span>
+      <span th:if="${posts.page != 4}" class="page-numbers dots">&hellip;</span>
+    </th:block>
+    <th:block th:each="index:${#numbers.sequence(posts.page-2,posts.page+2)}">
+      <a
+        th:if="${index > 0 && index <= posts.totalPages}"
+        th:class="page-numbers + ${posts.page == index ? ' current': ''}"
+        th:href="${path+'/tags/'+slug}"
+        >[[${index}]]</a
+      >
+    </th:block>
+
+    <th:block th:if="${posts.totalPages - posts.page > 2}">
+      <span th:if="${posts.totalPages - posts.page != 3}" class="page-numbers dots">&hellip;</span>
+      <a th:class="page-numbers + ${posts.page == index ? ' current': ''}" th:href="${path+'/tags/'+slug}"
+        >[[${posts.totalPages}]]</a
+      >
+    </th:block>
+  </div>
+</div>

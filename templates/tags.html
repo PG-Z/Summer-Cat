@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(content = ~{::content}, _head = ~{::head})}"
+>
+  <th:block th:fragment="head">
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/tags.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/tags.css"
+    />
+  </th:block>
+
+  <th:block th:fragment="content">
+    <main class="main-content">
+      <header class="archive-header u-textAlignCenter">
+        <h1 class="archive-title"><span>Tags</span></h1>
+        <button class="button termlike" data-action="termlike" data-action-id="87">
+          <span class="count" th:text="${#lists.size(tags)}"></span>
+        </button>
+      </header>
+
+      <section class="notes-box">
+        <div class="tags_card tag_widget">
+          <div class="tags-card-content">
+            <div class="tags-menu">
+              <div class="tags_field tag_is-grouped is-grouped-multiline">
+                <th:block th:if="${not #lists.isEmpty(tags)}">
+                  <th:block th:each="tag : ${tags}">
+                    <a class="t_tags has-addons" th:href="@{${tag.status?.permalink}}">
+                      <span class="t_tag" th:text="${tag.spec?.displayName}"></span>
+                      <span class="t_tag" th:text="${tag.postCount}"></span>
+                    </a>
+                  </th:block>
+                </th:block>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </th:block>
+</html>
