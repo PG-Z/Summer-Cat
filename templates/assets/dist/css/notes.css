@@ -91,10 +91,10 @@
 
 /* note text style */
 .main-content .notes-content * {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 13px;
-  font-family: "Open Sans Light Italic", PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti, WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;
-  color: #333;
+  /*font-family: "Open Sans Light Italic", PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti, WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;*/
+  /*color: #333;*/
   line-height: 1.5;
 }
 

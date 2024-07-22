@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{modules/layout :: html(title = ${title}, content = ~{::content}, _head = ~{::head})}"
+  th:replace="~{modules/layout :: html(content = ~{::content}, _head = ~{::head})}"
 >
-<th:block th:fragment="head">
-  <link
-    rel="stylesheet"
-    th:href="@{/assets/dist/css/notes.css?v={version}(version=${theme.spec.version})}"
-    href="./assets/dist/css/notes.css"
-  />
-</th:block>
-<th:block th:fragment="content">
-  <main class="main-content">
-    <header class="archive-header u-textAlignCenter">
-      <h1 class="archive-title"><span>Notes</span></h1>
-      <button class="button termlike" data-action="termlike" data-action-id="87">
-        <span class="count" th:text="${moments.total}"></span>
-      </button>
-    </header>
-    <section class="notes-box">
-      <ul>
-        <li th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
-
-          <div class="top">
-            <div class="left">
-              <img th:src="${moment.owner.avatar}">
+  <th:block th:fragment="head">
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/index-article.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/index-article.css"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/notes.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/notes.css"
+    />
+  </th:block>
+  <th:block th:fragment="content">
+    <main class="main-content">
+      <header class="archive-header u-textAlignCenter">
+        <h1 class="archive-title"><span>Notes</span></h1>
+        <button class="button termlike" data-action="termlike" data-action-id="87">
+          <span class="count" th:text="${moments.total}"></span>
+        </button>
+      </header>
+      <section class="blockGroup">
+        <th:block th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
+          <article class="block--inset block--list block">
+            <div class="notes-content">
+              <p th:utext="${content.html}"></p>
+              <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
             </div>
-            <div class="right">
-              <div class="note-author" th:text="${moment.owner.displayName}"></div>
-              <div class="note-date">
-                <span th:text="${#dates.format(moment.spec.releaseTime,'yyyy年MM月dd日 HH:mm')}"></span>
+            <div class="block-footer">
+              By
+              <th:block th:text="${moment.owner?.displayName}" />
+              <div class="block-footer-inner">
+                <time
+                  class="article-date"
+                  itemprop="datePublished"
+                  th:datetime="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
+                  th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
+                ></time>
               </div>
             </div>
-          </div>
-
-          <div class="notes-content">
-            <p th:utext="${content.raw}"></p>
-            <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}"/>
-          </div>
-          <!--          <div class="view-detail"><a th:href="${'/moments/'+moment.metadata.name}">查看详情</a></div>-->
-        </li>
-      </ul>
-    </section>
-
-    <th:block
-      th:if="${moments.items > 1}"
-      th:replace="~{modules/moment/moments-paginator :: paginator('',${moments})}"
-    />
-  </main>
-</th:block>
+          </article>
+        </th:block>
+      </section>
+      <th:block
+        th:if="${moments.items > 1}"
+        th:replace="~{modules/moment/moments-paginator :: paginator('',${moments})}"
+      />
+    </main>
+  </th:block>
 </html>
