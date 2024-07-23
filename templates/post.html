@@ -3,101 +3,108 @@
   xmlns:th="https://www.thymeleaf.org"
   th:replace="~{modules/layout :: html(title = ${post.spec.title}, content = ~{::content}, _head = ~{::head}, _plugins = ~{::plugins})}"
 >
+  <th:block th:if="${theme.config.toc.switch}" th:fragment="plugins">
+    <script th:src="@{/assets/dist/plugins/tocbot.min.js(v=${theme.spec.version})}"></script>
+    <script th:src="@{/assets/dist/plugins/tocmain.js?v={version}(version=${theme.spec.version})}"></script>
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/plugins/tocmain.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/plugins/tocmain.css"
+    />
+  </th:block>
 
-<th:block th:if="${theme.config.toc.switch}" th:fragment="plugins">
-  <script th:src="${theme.config.toc.js}"></script>
-  <script th:src="@{/assets/dist/plugins/tocmain.js?v={version}(version=${theme.spec.version})}"></script>
-  <link rel="stylesheet" th:href="@{/assets/dist/plugins/tocmain.css?v={version}(version=${theme.spec.version})}" href="./assets/dist/plugins/tocmain.css"/>
-  <link rel="stylesheet" th:href="${theme.config.toc.css}">
-</th:block>
+  <th:block th:fragment="content">
+    <main class="main-content" id="container">
+      <section class="section-body">
+        <header class="section-header u-textAlignCenter" id="postHeader">
+          <h2 class="grap--h2" th:text="${post.spec.title}"></h2>
+          <div class="block-postMetaWrap">
+            <time
+              class="article-date"
+              itemprop="datePublished"
+              th:datetime="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+              th:text="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
+            ></time>
+          </div>
+        </header>
+        <div class="grap js-toc-content" th:utext="${post.content.content}"></div>
+        <section class="blockGroup" th:if="${pluginFinder.available('PluginMaps')}">
+          <th:block th:replace="~{plugin:PluginMaps:map-marker-append :: marker-addon(${post.metadata.name})}" />
+        </section>
 
-<th:block th:fragment="content">
-  <main class="main-content" id="container">
-    <section class="section-body">
-      <header class="section-header u-textAlignCenter" id="postHeader">
-        <h2 class="grap--h2" th:text="${post.spec.title}"></h2>
-        <div class="block-postMetaWrap">
-          <time
-            class="article-date"
-            itemprop="datePublished"
-            th:datetime="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
-            th:text="${#temporals.format(post.spec.publishTime, 'MMMM dd yyyy')}"
-          ></time>
-        </div>
-      </header>
-      <div class="grap js-toc-content" th:utext="${post.content.content}"></div>
-      <section class="blockGroup" th:if="${pluginFinder.available('PluginMaps')}">
-        <th:block th:replace="~{plugin:PluginMaps:map-marker-append :: marker-addon(${post.metadata.name})}"/>
-      </section>
-
-      <div class="post--keywords" itemprop="keywords">
-        <th:block th:if="${not #lists.isEmpty(post.tags)}">
-          <th:block th:each="tag : ${post.tags}">
-            <a
-              th:href="${tag.status?.permalink}"
-              class="post--keyword"
-              data-type="post_tag"
-              th:text="${tag.spec?.displayName}"
-            ></a>
-          </th:block>
-        </th:block>
-      </div>
-
-      <nav class="navigation post-navigation" aria-label="文章"
-           th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
-        <h2 class="screen-reader-text">文章导航</h2>
-        <div class="nav-links">
-          <th:block th:if="${postCursor.hasPrevious()}">
-            <div
-              class="nav-previous"
-              th:style="'visibility:' + ${postCursor.hasPrevious()?'block':'hidden'}+';background-image: url('+${postCursor.previous.spec.cover}+')'"
-            >
+        <div class="post--keywords" itemprop="keywords">
+          <th:block th:if="${not #lists.isEmpty(post.tags)}">
+            <th:block th:each="tag : ${post.tags}">
               <a
-                th:href="@{${postCursor.previous.status.permalink}}"
-                th:title="${postCursor.previous.spec.title}"
-                rel="prev"
+                th:href="${tag.status?.permalink}"
+                class="post--keyword"
+                data-type="post_tag"
+                th:text="${tag.spec?.displayName}"
+              ></a>
+            </th:block>
+          </th:block>
+        </div>
+
+        <nav
+          class="navigation post-navigation"
+          aria-label="文章"
+          th:with="postCursor = ${postFinder.cursor(post.metadata.name)}"
+        >
+          <h2 class="screen-reader-text">文章导航</h2>
+          <div class="nav-links">
+            <th:block th:if="${postCursor.hasPrevious()}">
+              <div
+                class="nav-previous"
+                th:style="'visibility:' + ${postCursor.hasPrevious()?'block':'hidden'}+';background-image: url('+${postCursor.previous.spec.cover}+')'"
               >
-                <span class="meta-nav">Previous</span>
-                <span class="post-title" th:text="${#strings.abbreviate(postCursor.previous.spec.title,20)}"></span>
-              </a>
-            </div>
-          </th:block>
-          <th:block th:if="${postCursor.hasNext()}">
-            <div
-              class="nav-next"
-              th:style="'visibility:' + ${postCursor.hasNext()?'block':'hidden'}+';background-image: url('+${postCursor.next.spec.cover}+')'"
-            >
-              <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}" rel="next">
-                <span class="meta-nav">Next</span>
-                <span class="post-title" th:text="${#strings.abbreviate(postCursor.next.spec.title,20)}"></span>
-              </a>
-            </div>
-          </th:block>
-        </div>
-      </nav>
-      
-      <aside th:if="${theme.config.post.toc}" id="toc" class="toc js-toc"></aside>
+                <a
+                  th:href="@{${postCursor.previous.status.permalink}}"
+                  th:title="${postCursor.previous.spec.title}"
+                  rel="prev"
+                >
+                  <span class="meta-nav">Previous</span>
+                  <span class="post-title" th:text="${#strings.abbreviate(postCursor.previous.spec.title,20)}"></span>
+                </a>
+              </div>
+            </th:block>
+            <th:block th:if="${postCursor.hasNext()}">
+              <div
+                class="nav-next"
+                th:style="'visibility:' + ${postCursor.hasNext()?'block':'hidden'}+';background-image: url('+${postCursor.next.spec.cover}+')'"
+              >
+                <a th:href="@{${postCursor.next.status.permalink}}" th:title="${postCursor.next.spec.title}" rel="next">
+                  <span class="meta-nav">Next</span>
+                  <span class="post-title" th:text="${#strings.abbreviate(postCursor.next.spec.title,20)}"></span>
+                </a>
+              </div>
+            </th:block>
+          </div>
+        </nav>
 
-      <div class="postFooterinfo u-textAlignCenter">
-        <img
-          alt=""
-          th:src="${post.owner.avatar}"
-          class="avatar avatar-64 photo"
-          height="64"
-          width="64"
-          decoding="async"
-        />
-        <h3 class="author-name" th:text="${post.owner.displayName}"></h3>
-        <div class="author-description">©版权信息：可以转载，请署名，并保留原文地址，尊重版权</div>
-        <div class="author-meta">
-          <span class="author-meta-item"><span class="icon-link"></span><a href="/" th:text="${site.url}"></a></span>
-        </div>
-      </div>
+        <aside th:if="${theme.config.post.toc}" class="toc-card">
+          <div id="toc" class="toc-card toc js-toc"></div>
+        </aside>
 
-      <div id="comment" th:if="${haloCommentEnabled}">
-        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}"/>
-      </div>
-    </section>
-  </main>
-</th:block>
+        <div class="postFooterinfo u-textAlignCenter">
+          <img
+            alt=""
+            th:src="${post.owner.avatar}"
+            class="avatar avatar-64 photo"
+            height="64"
+            width="64"
+            decoding="async"
+          />
+          <h3 class="author-name" th:text="${post.owner.displayName}"></h3>
+          <div class="author-description">©版权信息：可以转载，请署名，并保留原文地址，尊重版权</div>
+          <div class="author-meta">
+            <span class="author-meta-item"><span class="icon-link"></span><a href="/" th:text="${site.url}"></a></span>
+          </div>
+        </div>
+
+        <div id="comment" th:if="${haloCommentEnabled}">
+          <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" />
+        </div>
+      </section>
+    </main>
+  </th:block>
 </html>
