@@ -27,7 +27,9 @@
         <th:block th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
           <article class="block--inset block--list block">
             <div class="notes-content">
-              <p th:utext="${content.html}"></p>
+              <div>
+                <p th:utext="${content.html}"></p>
+              </div>
               <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
             </div>
             <div class="block-footer">

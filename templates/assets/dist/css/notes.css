@@ -22,7 +22,7 @@
 }
 
 .main-content .notes-box .notes-content {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -91,7 +91,7 @@
 
 /* note text style */
 .main-content .notes-content * {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 13px;
   /*font-family: "Open Sans Light Italic", PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti, WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;*/
   /*color: #333;*/
@@ -99,7 +99,7 @@
 }
 
 .main-content .notes-content *:last-child {
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 
 .main-content .notes-content a {
