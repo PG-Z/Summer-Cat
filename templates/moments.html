@@ -35,14 +35,7 @@
             <div class="block-footer">
               By
               <th:block th:text="${moment.owner?.displayName}" />
-              <div class="block-footer-inner">
-                <time
-                  class="article-date"
-                  itemprop="datePublished"
-                  th:datetime="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
-                  th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}"
-                ></time>
-              </div>
+              (<th:block th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}" />)
             </div>
           </article>
         </th:block>

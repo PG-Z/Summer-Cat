@@ -245,3 +245,10 @@
   color: #999;
 }
 
+.block--list {
+  border-bottom: 2px rgba(0, 0, 0, .05) solid;
+  padding: 20px 0 15px 0; !important;
+  position: relative
+}
+
+
