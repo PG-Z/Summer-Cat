@@ -20,24 +20,27 @@
         </button>
       </header>
 
-      <section class="notes-box">
-        <div class="tags_card tag_widget">
-          <div class="tags-card-content">
-            <div class="tags-menu">
-              <div class="tags_field tag_is-grouped is-grouped-multiline">
-                <th:block th:if="${not #lists.isEmpty(tags)}">
-                  <th:block th:each="tag : ${tags}">
-                    <a class="t_tags has-addons" th:href="@{${tag.status?.permalink}}">
-                      <span class="t_tag" th:text="${tag.spec?.displayName}"></span>
-                      <span class="t_tag" th:text="${tag.postCount}"></span>
-                    </a>
-                  </th:block>
+      <div class="tags_card tag_widget">
+        <div class="tags-card-content">
+          <div class="tags-menu">
+            <div class="tags_field tag_is-grouped is-grouped-multiline">
+              <th:block th:if="${not #lists.isEmpty(tags)}">
+                <th:block th:each="tag : ${tags}">
+                  <a class="t_tags has-addons" th:href="@{${tag.status?.permalink}}">
+                    <span
+                      class="t_tag"
+                      th:style="${tag.spec?.color} != null and ${tag.spec?.color} != '#ffffff' ? 'background-color:' + ${tag.spec?.color} : ''"
+                    >
+                      #<th:block th:text="${tag.spec?.displayName}"></th:block>
+                    </span>
+                    <span class="t_tag" th:text="${tag.visiblePostCount}"></span>
+                  </a>
                 </th:block>
-              </div>
+              </th:block>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   </th:block>
 </html>
