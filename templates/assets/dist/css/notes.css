@@ -10,13 +10,15 @@ figure.snip1157 {
   text-align: left;
   box-shadow: none !important;
 }
+
 figure.snip1157 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
   transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
 }
-figure.snip1157 img {
+
+figure.snip1157 .avatar-img {
   max-width: 100%;
   vertical-align: middle;
   height: 90px;
@@ -24,6 +26,7 @@ figure.snip1157 img {
   border-radius: 50%;
   margin: 40px 0 0 10px;
 }
+
 figure.snip1157 blockquote {
   display: block;
   border-radius: 8px;
@@ -36,6 +39,7 @@ figure.snip1157 blockquote {
   line-height: 1.6em;
   font-style: italic;
 }
+
 figure.snip1157 blockquote:before,
 figure.snip1157 blockquote:after {
   font-family: 'FontAwesome';
@@ -45,15 +49,18 @@ figure.snip1157 blockquote:after {
   opacity: 0.3;
   font-style: normal;
 }
+
 figure.snip1157 blockquote:before {
   top: 25px;
   left: 20px;
 }
+
 figure.snip1157 blockquote:after {
   content: "\201D";
   right: 20px;
   bottom: 0;
 }
+
 figure.snip1157 .arrow {
   top: 100%;
   width: 0;
@@ -64,6 +71,7 @@ figure.snip1157 .arrow {
   margin: 0;
   position: absolute;
 }
+
 figure.snip1157 .author {
   position: absolute;
   bottom: 45px;
@@ -74,6 +82,7 @@ figure.snip1157 .author {
   -webkit-transform: translateY(50%);
   transform: translateY(50%);
 }
+
 figure.snip1157 .author h5 {
   opacity: 0.8;
   margin: 0;
@@ -90,11 +99,13 @@ figure.snip1157 .time {
   -webkit-transform: translateY(50%);
   transform: translateY(55%);
 }
+
 figure.snip1157 .time h5 {
   opacity: 0.8;
   margin: 0;
   font-weight: 800;
 }
+
 figure.snip1157 .time h5 span {
   font-weight: 400;
   text-transform: none;
@@ -105,6 +116,7 @@ figure.snip1157 .time h5 span {
 .moments {
   height: 100%;
 }
+
 .moments {
   display: flex;
   justify-content: center;
@@ -112,4 +124,19 @@ figure.snip1157 .time h5 span {
   flex-flow: wrap;
   margin: 0;
   height: 100%;
+}
+
+.medium-table td {
+  padding: 5px;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100px; /* 设置固定高度 */
+  box-sizing: border-box; /* 包含 padding 在内的宽高计算 */
+}
+
+.medium-table img {
+  width: 100%; /* 宽度铺满 */
+  height: 100%; /* 高度铺满 */
+  object-fit: cover; /* 保持宽高比并覆盖整个容器 */
+  border-radius: 8px;
 }

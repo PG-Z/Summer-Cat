@@ -16,9 +16,10 @@
         <figure class="snip1157">
           <blockquote>
             <p th:utext="${content.html}"></p>
+            <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
             <div class="arrow"></div>
           </blockquote>
-          <img th:src="${moment.owner.avatar}" />
+          <img class="avatar-img" th:src="${moment.owner.avatar}" />
           <div class="author">
             <h5 th:text="${moment.owner.displayName}"></h5>
           </div>
