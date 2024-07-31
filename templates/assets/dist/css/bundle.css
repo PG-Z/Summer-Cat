@@ -71,7 +71,7 @@ blockquote, q {
 }
 
 blockquote {
-  border-left: 3px solid rgba(0, 0, 0, .8);
+  /*border-left: 3px solid rgba(0, 0, 0, .8);*/
   font-weight: 400;
   letter-spacing: .01rem;
   margin: 30px 0;

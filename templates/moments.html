@@ -6,44 +6,34 @@
   <th:block th:fragment="head">
     <link
       rel="stylesheet"
-      th:href="@{/assets/dist/css/index-article.css?v={version}(version=${theme.spec.version})}"
-      href="./assets/dist/css/index-article.css"
-    />
-    <link
-      rel="stylesheet"
       th:href="@{/assets/dist/css/notes.css?v={version}(version=${theme.spec.version})}"
       href="./assets/dist/css/notes.css"
     />
   </th:block>
   <th:block th:fragment="content">
-    <main class="main-content">
-      <header class="archive-header u-textAlignCenter">
-        <h1 class="archive-title"><span>Notes</span></h1>
-        <button class="button termlike" data-action="termlike" data-action-id="87">
-          <span class="count" th:text="${moments.total}"></span>
-        </button>
-      </header>
-      <section class="blockGroup">
-        <th:block th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
-          <article class="block--inset block--list block">
-            <div class="notes-content">
-              <div>
-                <p th:utext="${content.html}"></p>
-              </div>
-              <th:block th:replace="~{modules/moment/moments-medium :: medium(${moment})}" />
-            </div>
-            <div class="block-footer">
-              By
-              <th:block th:text="${moment.owner?.displayName}" />
-              (<th:block th:text="${#temporals.format(moment.spec.releaseTime, 'MMMM dd yyyy')}" />)
-            </div>
-          </article>
-        </th:block>
-      </section>
-      <th:block
-        th:if="${moments.items > 1}"
-        th:replace="~{modules/moment/moments-paginator :: paginator('',${moments})}"
-      />
+    <main class="main-content moments">
+      <th:block th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
+        <figure class="snip1157">
+          <blockquote>
+            <p th:utext="${content.html}"></p>
+            <div class="arrow"></div>
+          </blockquote>
+          <img th:src="${moment.owner.avatar}" />
+          <div class="author">
+            <h5 th:text="${moment.owner.displayName}"></h5>
+          </div>
+          <div class="time">
+            <h5>
+              <span th:text="${#dates.format(moment.spec.releaseTime,'MMMM dd yyyy')}"></span>
+            </h5>
+          </div>
+        </figure>
+      </th:block>
     </main>
+
+    <th:block
+      th:if="${moments.items > 1}"
+      th:replace="~{modules/moment/moments-paginator :: paginator('',${moments})}"
+    />
   </th:block>
 </html>
