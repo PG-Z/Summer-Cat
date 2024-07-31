@@ -23,7 +23,7 @@
       <div class="tags_card tag_widget">
         <div class="tags-card-content">
           <div class="tags-menu">
-            <div class="tags_field tag_is-grouped is-grouped-multiline">
+            <div class="tags_field tag_is-grouped is-grouped-centered is-grouped-multiline">
               <th:block th:if="${not #lists.isEmpty(tags)}">
                 <th:block th:each="tag : ${tags}">
                   <a class="t_tags has-addons" th:href="@{${tag.status?.permalink}}">
@@ -33,7 +33,7 @@
                     >
                       #<th:block th:text="${tag.spec?.displayName}"></th:block>
                     </span>
-                    <span class="t_tag" th:text="${tag.visiblePostCount}"></span>
+                    <span class="t_tag" th:text="${tag.status?.visiblePostCount}"></span>
                   </a>
                 </th:block>
               </th:block>
