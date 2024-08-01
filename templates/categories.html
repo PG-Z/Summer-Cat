@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(content = ~{::content}, _head = ~{::head})}"
+>
+  <th:block th:fragment="head">
+    <link
+      rel="stylesheet"
+      th:href="@{/assets/dist/css/categories.css?v={version}(version=${theme.spec.version})}"
+      href="./assets/dist/css/categories.css"
+    />
+  </th:block>
+  <th:block th:fragment="content">
+    <main class="main-content">
+      <section class="categories articles">
+        <th:block th:each="category : ${categories}">
+          <article>
+            <div class="article-wrapper">
+              <figure>
+                <img th:src="${category.spec.cover}" alt="" />
+              </figure>
+              <div class="article-body">
+                <h2 th:text="${category.spec.displayName}"></h2>
+                <p th:text="${category.spec.description}"></p>
+                <a th:href="${category.status?.permalink}" class="read-more">
+                  Read more <span class="sr-only" th:text="${category.spec.slug}"></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </th:block>
+      </section>
+    </main>
+  </th:block>
+</html>
