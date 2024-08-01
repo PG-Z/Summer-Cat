@@ -413,6 +413,19 @@ footer .icon-animate {
   color: rgba(0, 0, 0, .8)
 }
 
+.topNav-items li {
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+  a {
+    color: #777;
+    text-decoration: none;
+    transition: all 0.45s;
+  }
+  a:hover {
+    color: #27ae60;
+  }
+}
+
 .block-image {
   background-position: center center;
   background-size: cover;
