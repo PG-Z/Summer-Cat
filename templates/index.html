@@ -47,10 +47,12 @@
               </th:block>
 
               <div class="block-footer-inner">
+                <th:block th:text="${post.stats?.visit}" />
+                <span class="icon-degree-celsius"></span>
+                .
                 <th:block th:text="${post.stats?.upvote}" />
-                喜欢 .
-                <th:block th:text="${post.stats?.comment}" />
-                回复.
+                <span class="icon-heart1"></span>
+                .
               </div>
             </div>
           </article>

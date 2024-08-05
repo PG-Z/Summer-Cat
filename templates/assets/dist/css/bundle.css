@@ -145,6 +145,7 @@ input[disabled] {
   font-style: normal
 }
 
+/*https://icomoon.io/app*/
 @font-face {
   font-family: icomoon;
   src: url(../fonts/icomoon.eot?jh4rkv);
@@ -203,9 +204,18 @@ input[disabled] {
 .icon-heart:before {
   content: "\e9da";
 }
+.icon-heart1:before {
+  content: "\e904";
+}
 .icon-heart {
   /*这个属性确保了元素是一个内联块级元素，从而允许应用变换和动画*/
   display: inline-block;
+}
+.icon-reply1 {
+  content: "\e905";
+}
+.icon-reply2 {
+  content: "\e906";
 }
 
 .icon-cool2:before {
@@ -230,6 +240,14 @@ input[disabled] {
 
 .icon-rss:before {
   content: "\ea9b";
+}
+
+.icon-degree-celsius:before {
+  content: "\e902";
+}
+
+.icon-degree-fahrenheit:before {
+  content: "\e903";
 }
 
 footer .icon-animate {
