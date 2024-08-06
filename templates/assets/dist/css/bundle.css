@@ -1280,3 +1280,7 @@ sub, sup {
   position: relative;
   vertical-align: baseline;
 }
+
+.hidden {
+  display: none;
+}

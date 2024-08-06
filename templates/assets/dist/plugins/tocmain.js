@@ -10,6 +10,11 @@ jQuery(function ($) {
         return;
       }
       CAT_TOC_CTX.init();
+
+      var toc = document.querySelector('.js-toc');
+      if (toc && toc.innerHTML.trim() === '') {
+        document.getElementById('toc').classList.add('hidden');
+      }
     },
 
     // 初始化目录
