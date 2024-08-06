@@ -20,8 +20,13 @@ jQuery(function ($) {
       tocbot.init({
         tocSelector: '.js-toc',
         contentSelector: ".js-toc-content",
-        headingSelector: "h1,h2,h3,h4,h5,h6",
-        scrollSmooth: true,
+        headingSelector: "h1,h2,h3,h4",
+        // collapseDepth: 6,
+        headingsOffset: 100,
+        // scrollSmooth: !0,
+        scrollSmoothOffset: -100,
+        tocScrollOffset: 50,
+        // scrollSmooth: true,
         hasInnerContainers: false,
       });
 

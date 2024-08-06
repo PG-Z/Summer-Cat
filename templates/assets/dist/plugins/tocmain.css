@@ -5,10 +5,20 @@
   width: 180px; /* TOC宽度，可以根据需要调整 */
   max-height: 80%; /* 最大高度，防止超出页面 */
   overflow-y: auto; /* 允许垂直滚动 */
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding: 10px; /* 内边距 */
   border: 1px solid #ddd; /* 边框 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.toc-header {
+  width: 100%; 
+  text-align: left; /* 使 .toc 内的内容水平居中 */
+}
+
+.toc-title {
+  display: inline-block; /* 使 .toc-title 元素的宽度适应内容 */
+  font-size: 1.1rem;
 }
 
 .toc-card {
@@ -28,7 +38,6 @@
 
 .toc-list {
   margin: 0;
-  line-height: 1.25;
 }
 
 a.toc-link {
@@ -55,27 +64,30 @@ a.toc-link {
   font-weight: 700
 }
 
-.toc-list  a {
+.toc-list a {
   border-radius: 2px;
   color: #4a4a4a;
   display: block;
   padding: 0.5em 0.75em;
 }
-.toc-list  a:hover {
+
+.toc-list a:hover {
   background-color: #f5f5f5;
   color: #363636;
 }
-.toc-list-item  a.is-active-link {
+
+.toc-list-item a.is-active-link {
   background-color: #eef3fc;
   color: #54bc4b;
 }
-.toc-list  li ol {
-  border-left: 1px solid #dbdbdb;
-  margin: 0.75em;
-  padding-left: 0.75em;
+
+.toc-list li ol {
+  border-left: 1px solid #54bc4b;
+  margin: 0.5em;
+  padding-left: 0.5em;
 }
 
-@media (max-width: 867px) {
+@media (max-width: 1200px) {
   #toc {
     display: none;
   }
