@@ -667,6 +667,23 @@ footer .icon-animate {
   background-color: #27ae60
 }
 
+.wpl-button.is-active, .wpl-button:hover {
+  background-color: #57ad68;
+  color: #fff;
+}
+
+.wpl-button {
+  height: 32px;
+  line-height: 31px;
+  border-radius: 999em;
+  padding: 0 15px;
+  border: 1px #57ad68 solid;
+  color: #57ad68;
+  display: inline-block;
+  font-size: 14px;
+  background: #fff;
+}
+
 .site-footer {
   padding-top: 20px;
   padding-bottom: 20px;

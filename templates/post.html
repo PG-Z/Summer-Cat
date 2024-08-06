@@ -45,6 +45,12 @@
           </th:block>
         </div>
 
+        <div class="postFooterAction">
+          <button th:attr="data-id=${post.metadata.name}" class="wpl-button">
+            <span class="count" th:text="${post.stats?.upvote}"></span>
+          </button>
+        </div>
+
         <nav
           class="navigation post-navigation"
           aria-label="文章"
