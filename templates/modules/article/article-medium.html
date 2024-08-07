@@ -6,10 +6,12 @@
         th:classappend="${row + 1 >= coveArr.length ? 'article-medium-full-tr' : ''}"
       >
         <td th:if="${row < coveArr.length}">
-          <img th:src="${coveArr[row]}" />
+          <!--          <img class="lazy" loading="lazy" th:src="${coveArr[row]}" />-->
+          <img class="lazy" loading="lazy" th:attr="data-original=${coveArr[row]}" />
         </td>
         <td th:if="${row + 1 < coveArr.length}">
-          <img th:src="${coveArr[row + 1]}" />
+          <!--          <img  class="lazy" loading="lazy" th:src="${coveArr[row + 1]}" />-->
+          <img class="lazy" loading="lazy" th:attr="data-original=${coveArr[row + 1]}" />
         </td>
         <!-- 如果只有一个图像，补充一个空的单元格 -->
         <td th:if="${row + 1 >= coveArr.length}"></td>

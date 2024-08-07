@@ -2,7 +2,7 @@
   <table class="medium-table" th:if="${#strings.contains(moment.spec.content.medium, 'PHOTO')}">
     <tr th:each="row : ${#numbers.sequence(0, moment.spec.content.medium.size() - 1, 2)}">
       <td th:each="index : ${#numbers.sequence(row, row + 1)}" th:if="${index < moment.spec.content.medium.size()}">
-        <img th:src="${moment.spec.content.medium[index].url}" />
+        <img loading="lazy" th:src="${moment.spec.content.medium[index].url}" />
       </td>
     </tr>
   </table>
