@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
       img.attr("loading", 'lazy');
     }
     if (!img.hasClass("lazy")) {
-      img.addClass("no lazy");
+      img.addClass("lazy");
     }
   });
 
