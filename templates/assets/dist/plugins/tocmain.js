@@ -6,33 +6,29 @@ jQuery(function ($) {
   CAT_TOC_CTX = {
 
     toc: function () {
-      if (document.body.clientWidth <= 867) {
-        return;
-      }
       CAT_TOC_CTX.init();
-
-      var toc = document.querySelector('.js-toc');
-      if (toc && toc.innerHTML.trim() === '') {
-        document.getElementById('toc').classList.add('hidden');
-      }
     },
 
     // 初始化目录
     init: function () {
-      if ($("#container").find("#toc").length < 1) {
-        return;
-      }
       tocbot.init({
-        tocSelector: '.js-toc',
+        tocSelector: '.toc',
         contentSelector: ".js-toc-content",
-        headingSelector: "h1,h2,h3,h4",
-        // collapseDepth: 6,
-        headingsOffset: 100,
-        // scrollSmooth: !0,
-        scrollSmoothOffset: -100,
-        tocScrollOffset: 50,
-        // scrollSmooth: true,
-        hasInnerContainers: false,
+        headingSelector: "h1, h2, h3, h4, h5, h6",
+        hasInnerContainers: !0,
+        scrollSmooth: !0,
+        includeTitleTags: !0,
+        scrollSmoothDuration: 280,
+        throttleTimeout: 30,
+        headingsOffset: 80,
+        scrollSmoothOffset: -80,
+        fixedSidebarOffset: "auto",
+        disableTocScrollSync: !1,
+        onClick: function (t) {
+          t.preventDefault()
+        },
+        scrollEndCallback: function (t) {
+        }
       });
 
     },
@@ -41,5 +37,12 @@ jQuery(function ($) {
 
   if (CAT_TOC_CTX && typeof CAT_TOC_CTX.init === 'function') {
     CAT_TOC_CTX.toc();
+  }
+});
+
+jQuery(document).ready(function () {
+  var tocHtml = document.querySelector('.js-toc');
+  if (tocHtml && tocHtml.innerHTML.trim() !== '') {
+    document.getElementById('toc').style.display = 'block';
   }
 });

@@ -250,6 +250,10 @@ input[disabled] {
   content: "\e903";
 }
 
+.icon-notes:before {
+  content: "\e909";
+}
+
 footer .icon-animate {
   animation: heartbeat-animate 1.2s ease-in-out infinite !important;
 }

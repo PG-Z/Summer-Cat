@@ -87,13 +87,6 @@
           </div>
         </nav>
 
-        <div id="toc" th:if="${theme.config.toc?.switch}" class="toc-container">
-          <div class="toc-header">
-            <span class="toc-title">目录</span>
-          </div>
-          <div class="toc-card toc js-toc"></div>
-        </div>
-
         <div class="postFooterinfo u-textAlignCenter">
           <img
             loading="lazy"
@@ -116,5 +109,15 @@
         </div>
       </section>
     </main>
+
+    <aside id="toc" th:if="${theme.config.toc?.switch}" class="toc-container card">
+      <section class="card-content post-tocbot">
+        <div class="toc-header">
+          <span class="icon-notes"></span>
+          <span class="toc-title">Catalogue</span>
+        </div>
+        <div class="toc-card toc js-toc"></div>
+      </section>
+    </aside>
   </th:block>
 </html>
