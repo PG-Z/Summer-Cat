@@ -59,6 +59,7 @@
 .post-tocbot .toc {
   overflow-y: auto;
   max-height: 500px;
+  font-size: 0.85em;
 }
 
 .post-tocbot .toc > .toc-list {
