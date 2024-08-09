@@ -21,10 +21,10 @@ figure.snip1157 * {
 figure.snip1157 .avatar-img {
   max-width: 100%;
   vertical-align: middle;
-  height: 90px;
-  width: 90px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  margin: 40px 0 0 10px;
+  margin: 25px 0 0 20px;
 }
 
 figure.snip1157 blockquote {
@@ -35,14 +35,14 @@ figure.snip1157 blockquote {
   padding: 25px 50px 30px 50px;
   font-size: 0.8em;
   font-weight: 500;
-  margin: 0;
+  margin: 2px;
   line-height: 1.6em;
   font-style: italic;
 }
 
 figure.snip1157 blockquote:before,
 figure.snip1157 blockquote:after {
-  font-family: 'FontAwesome';
+  font-family: 'FontAwesome', sans-serif;
   content: "\201C";
   position: absolute;
   font-size: 50px;
@@ -75,7 +75,7 @@ figure.snip1157 .arrow {
 figure.snip1157 .author {
   position: absolute;
   bottom: 45px;
-  padding: 0 10px 0 120px;
+  padding: 0 10px 0 80px;
   margin: 0;
   text-transform: uppercase;
   color: #27ae60;
@@ -92,7 +92,7 @@ figure.snip1157 .author h5 {
 figure.snip1157 .time {
   position: absolute;
   bottom: 25px;
-  padding: 0 10px 0 120px;
+  padding: 0 10px 0 80px;
   margin: 0;
   text-transform: uppercase;
   color: #0e1010;

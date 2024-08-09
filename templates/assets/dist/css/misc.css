@@ -1010,6 +1010,7 @@ p.with-img img {
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px 0 0 4px;
 }
 
 .post-navigation .nav-next .post-title {
@@ -1028,6 +1029,7 @@ p.with-img img {
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0 4px 4px 0;
 }
 
 .post-navigation {
@@ -1063,12 +1065,14 @@ p.with-img img {
 }
 
 .post-navigation .nav-previous {
-  float: left
+  float: left;
+  border-radius: 4px 0 0 4px;
 }
 
 .post-navigation .nav-next {
   float: right;
-  text-align: right
+  text-align: right;
+  border-radius: 0 4px 4px 0;
 }
 
 .puma--dark .post-navigation {
