@@ -41,8 +41,10 @@ jQuery(function ($) {
 });
 
 jQuery(document).ready(function () {
-  var tocHtml = document.querySelector('.js-toc');
-  if (tocHtml && tocHtml.innerHTML.trim() !== '') {
-    document.getElementById('toc').style.display = 'block';
+  if (window.innerWidth >= 1200) {
+    var tocHtml = document.querySelector('.js-toc');
+    if (tocHtml && tocHtml.innerHTML.trim() !== '') {
+      document.getElementById('toc').style.display = 'block';
+    }
   }
 });

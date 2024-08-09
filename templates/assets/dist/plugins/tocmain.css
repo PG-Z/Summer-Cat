@@ -8,12 +8,6 @@
   display: none; /* 默认隐藏 */
 }
 
-@media (max-width: 1200px) {
-  #toc {
-    display: none;
-  }
-}
-
 .toc-header {
   display: flex;
   align-items: center;
@@ -109,22 +103,3 @@
   background-color: #54bc4b
 }
 
-@media (max-width: 1000px) {
-  .aside .post-tocbot {
-    display: none;
-    position: fixed;
-    bottom: 50px;
-    z-index: 200;
-    max-width: 380px;
-    max-height: calc(100% - 60px);
-    width: calc(100% - 80px);
-    transition: transform 0.3s ease-in-out;
-    transform-origin: right bottom;
-    right: 55px;
-  }
-
-  .adsorption > .show-tocbot {
-    display: block;
-  }
-
-}
