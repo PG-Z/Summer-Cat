@@ -1069,10 +1069,30 @@ p.with-img img {
   border-radius: 4px 0 0 4px;
 }
 
+.post-navigation .nav-previous:only-child,
+.post-navigation .nav-previous:first-child:last-child {
+  border-radius: 4px;
+}
+
+.post-navigation .nav-previous:only-child:before,
+.post-navigation .nav-previous:first-child:last-child:before {
+  border-radius: 4px;
+}
+
 .post-navigation .nav-next {
   float: right;
   text-align: right;
   border-radius: 0 4px 4px 0;
+}
+
+.post-navigation .nav-next:only-child,
+.post-navigation .nav-next:first-child:last-child {
+  border-radius: 4px;
+}
+
+.post-navigation .nav-next:only-child:before,
+.post-navigation .nav-next:first-child:last-child:before {
+  border-radius: 4px;
 }
 
 .puma--dark .post-navigation {
