@@ -15,7 +15,7 @@
     <a href="/"><img src="https://img.shields.io/badge/halo-%3E=2.15.0-8caaee?style=for-the-badge&amp;logo=hexo&amp;logoColor=8caaee" referrerpolicy="no-referrer" alt="Required Halo version" /></a>
 </p>
 
-## 预览：[酒碗](https://aiheiyo.top)
+## 预览：[酒碗](https://aiheiyo.top?preview-theme=Summer-Cat)
 
 ## 使用说明
 
