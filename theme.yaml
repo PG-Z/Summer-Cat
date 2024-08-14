@@ -5,7 +5,7 @@ metadata:
 spec:
   displayName: 喵喵叫
   description: single column halo theme
-  logo: https://cdn.aifeel.top/typora/Playful%20cat-bro.png
+  logo: /themes/Summer-Cat/assets/images/cat.png
   repo: https://github.com/PG-Z/Summer-Cat.git
   author:
     name: evan
@@ -13,5 +13,5 @@ spec:
   website: https://aiheiyo.top
   settingName: "Summer-Cat-setting"
   configMapName: "Summer-Cat-configMap"
-  version: 1.3.3-alpha.6
+  version: 1.3.3
   require: 2.15.0
