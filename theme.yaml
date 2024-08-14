@@ -5,7 +5,7 @@ metadata:
 spec:
   displayName: 喵喵叫
   description: single column halo theme
-  logo: /themes/Summer-Cat/assets/images/cat.png
+  logo: /themes/Summer-Cat/assets/dist/images/cat.png
   repo: https://github.com/PG-Z/Summer-Cat.git
   author:
     name: evan
